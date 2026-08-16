@@ -51,7 +51,7 @@ export default function Contact() {
               <input
                 type="text"
                 required
-                placeholder="Mollie Mani-Lover"
+                placeholder="Mollies Manis Lover"
                 value={formData.name}
                 onChange={(event) =>
                   setFormData((data) => ({ ...data, name: event.target.value }))
