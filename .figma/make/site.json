@@ -1,0 +1,10 @@
+{
+  "description": "Creates visually appealing websites by seamlessly integrating user-provided images to enhance brand identity and user engagement.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
