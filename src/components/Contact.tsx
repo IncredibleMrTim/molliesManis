@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useTransition } from "react";
+import { submitContactForm } from "@/app/actions/contact";
 import type { IContactFormData } from "@/types/interfaces";
 
 const initialFormData: IContactFormData = { name: "", email: "", message: "" };
@@ -8,10 +9,21 @@ const initialFormData: IContactFormData = { name: "", email: "", message: "" };
 export default function Contact() {
   const [formData, setFormData] = useState<IContactFormData>(initialFormData);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
+  const [isPending, startTransition] = useTransition();
 
   function handleSubmit(event: React.FormEvent) {
     event.preventDefault();
-    setIsSubmitted(true);
+    setSubmitError(null);
+
+    startTransition(async () => {
+      const result = await submitContactForm(formData);
+      if (result.success) {
+        setIsSubmitted(true);
+      } else {
+        setSubmitError(result.error ?? "Something went wrong. Please try again.");
+      }
+    });
   }
 
   return (
@@ -75,11 +87,19 @@ export default function Contact() {
                 className="w-full resize-none rounded-2xl border-2 border-border bg-background px-4 py-3 text-sm font-semibold text-foreground outline-none"
               />
             </div>
+
+            {submitError && (
+              <p className="rounded-2xl bg-background px-4 py-3 text-sm font-bold text-primary-dark">
+                {submitError}
+              </p>
+            )}
+
             <button
               type="submit"
-              className="w-full rounded-full bg-gradient-to-br from-primary to-accent py-4 text-base font-bold text-primary-foreground shadow-lg transition-all hover:scale-105 hover:brightness-110 active:scale-95"
+              disabled={isPending}
+              className="w-full rounded-full bg-gradient-to-br from-primary to-accent py-4 text-base font-bold text-primary-foreground shadow-lg transition-all hover:scale-105 hover:brightness-110 active:scale-95 disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:scale-100"
             >
-              Send Message ✨
+              {isPending ? "Sending..." : "Send Message ✨"}
             </button>
           </form>
         )}

@@ -34,3 +34,8 @@ export interface IContactFormData {
   email: string;
   message: string;
 }
+
+export interface IContactActionResult {
+  success: boolean;
+  error?: string;
+}
