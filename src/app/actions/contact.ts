@@ -1,7 +1,7 @@
 "use server";
 
 import { contactFormSchema } from "@/lib/contactSchema";
-import { sendContactNotification } from "@/lib/mailer";
+import { sendContactNotification, sendCustomerConfirmation } from "@/lib/mailer";
 import type { IContactActionResult, IContactFormData } from "@/types/interfaces";
 
 export async function submitContactForm(
@@ -14,9 +14,16 @@ export async function submitContactForm(
 
   try {
     await sendContactNotification(parseResult.data);
-    return { success: true };
   } catch (error) {
     console.error("Failed to send contact form email:", error);
     return { success: false, error: "Something went wrong sending your message. Please try again." };
   }
+
+  try {
+    await sendCustomerConfirmation(parseResult.data);
+  } catch (error) {
+    console.error("Failed to send customer confirmation email:", error);
+  }
+
+  return { success: true };
 }
