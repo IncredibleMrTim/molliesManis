@@ -28,7 +28,6 @@ export const navLinks: INavLink[] = [
 ]
 
 export const heroStats: IHeroStat[] = [
-  // { value: "100+", label: "Sets Painted" },
   { value: "⭐ 5/5", label: "Happy Clients" },
   { value: "✦ By Hand", label: "Every Nail" },
 ]
