@@ -10,6 +10,9 @@ export default function GalleryStrip() {
             key={index}
             src={image}
             alt="Nail art"
+            width={120}
+            height={120}
+            placeholder="blur"
             className="h-[120px] w-[120px] flex-shrink-0 rounded-xl object-cover"
           />
         ))}

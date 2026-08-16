@@ -57,11 +57,14 @@ export default function Hero() {
 
         <div className="flex justify-center">
           <div className="float relative">
-            <div className="doily-border h-[300px] w-[300px] overflow-hidden rounded-full">
+            <div className="doily-border relative h-[300px] w-[300px] overflow-hidden rounded-full">
               <Image
                 src={heroLogo}
                 alt="Mollies Manis logo"
-                className="h-full w-full object-cover"
+                fill
+                sizes="300px"
+                placeholder="blur"
+                className="object-cover"
                 priority
               />
             </div>

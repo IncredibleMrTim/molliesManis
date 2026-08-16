@@ -1,13 +1,14 @@
-import logo from "@/assets/images/WhatsApp_Image_2026-08-13_at_11.48.47.jpeg";
-import fishLeopard from "@/assets/images/IMG_20260813_112912.jpg";
-import rainbowFun from "@/assets/images/IMG_20260813_112921.jpg";
-import galaxy from "@/assets/images/IMG_20260813_112952.jpg";
-import ocean from "@/assets/images/IMG_20260813_113043.jpg";
-import fishLeopard2 from "@/assets/images/IMG_20260813_113057_1.jpg";
-import fishLeopard3 from "@/assets/images/IMG_20260813_113057.jpg";
-import rainbowFun2 from "@/assets/images/IMG_20260813_113112.jpg";
-import samples from "@/assets/images/IMG_20260813_113127.jpg";
-import snoopy from "@/assets/images/IMG_20260813_113159.jpg";
+import logo from "@/assets/images/WhatsApp_Image_2026-08-13_at_11.48.47.webp";
+import oceanSpellPoster from "@/assets/images/ocean-spell-poster.webp";
+import fishLeopard from "@/assets/images/IMG_20260813_112912.webp";
+import rainbowFun from "@/assets/images/IMG_20260813_112921.webp";
+import galaxy from "@/assets/images/IMG_20260813_112952.webp";
+import ocean from "@/assets/images/IMG_20260813_113043.webp";
+import fishLeopard2 from "@/assets/images/IMG_20260813_113057_1.webp";
+import fishLeopard3 from "@/assets/images/IMG_20260813_113057.webp";
+import rainbowFun2 from "@/assets/images/IMG_20260813_113112.webp";
+import samples from "@/assets/images/IMG_20260813_113127.webp";
+import snoopy from "@/assets/images/IMG_20260813_113159.webp";
 import type {
   ICollection,
   IHeroStat,
@@ -17,7 +18,8 @@ import type {
 } from "@/types/interfaces";
 
 export const heroLogo = logo;
-export const oceanSpellImage = ocean;
+export const oceanSpellVideoSrc = "/videos/ocean-spell.mp4";
+export const oceanSpellPosterImage = oceanSpellPoster;
 
 export const navLinks: INavLink[] = [
   { label: "Collections", href: "#collections" },

@@ -1,6 +1,10 @@
-import Image from "next/image";
-import { oceanSpellImage, oneOfAKindItems } from "@/data/content";
-import DiamondDecor from "@/components/decor/DiamondDecor";
+import Image from "next/image"
+import {
+  oceanSpellPosterImage,
+  oceanSpellVideoSrc,
+  oneOfAKindItems,
+} from "@/data/content"
+import DiamondDecor from "@/components/decor/DiamondDecor"
 
 export default function Bespoke() {
   return (
@@ -16,13 +20,14 @@ export default function Bespoke() {
             One-of-a-Kind Nails
           </h2>
           <p className="mb-6 text-base leading-relaxed font-semibold text-body">
-            These are the singles — individual statement nails, accent pieces, and sample designs
-            showing the full range of what I can do. Snoopy, stars, florals, characters — each
-            one a miniature painting on a nail.
+            These are the singles — individual statement nails, accent pieces,
+            and sample designs showing the full range of what I can do. Snoopy,
+            stars, florals, characters — each one a miniature painting on a
+            nail.
           </p>
           <p className="mb-8 rounded-2xl border-l-[3px] border-primary bg-background px-4 py-3 text-sm font-bold text-primary-dark">
-            All sets are hand-painted to order. Lead time is typically 1–2 weeks depending on
-            design complexity.
+            All sets are hand-painted to order. Lead time is typically 1–2 weeks
+            depending on design complexity.
           </p>
           <a
             href="#contact"
@@ -41,25 +46,31 @@ export default function Bespoke() {
               <Image
                 src={item.image}
                 alt={item.label}
-                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                fill
+                sizes="(min-width: 768px) 25vw, 50vw"
+                placeholder="blur"
+                className="object-cover transition-transform duration-500 group-hover:scale-110"
               />
               <div className="absolute inset-0 flex items-end bg-gradient-to-t from-black/50 to-transparent p-3">
-                <span className="text-sm font-bold text-white">{item.label}</span>
+                <span className="text-sm font-bold text-white">
+                  {item.label}
+                </span>
               </div>
             </div>
           ))}
           <div className="group relative col-span-2 h-[200px] overflow-hidden rounded-2xl shadow-md transition-all hover:-translate-y-1 hover:shadow-xl">
-            <Image
-              src={oceanSpellImage}
-              alt="Ocean Spell nail set display"
+            <video
+              src={oceanSpellVideoSrc}
+              poster={oceanSpellPosterImage.src}
+              autoPlay
+              loop
+              muted
+              playsInline
               className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
             />
-            <div className="absolute inset-0 flex items-end bg-gradient-to-t from-black/40 to-transparent p-4">
-              <span className="font-bold text-white">Ocean Spell — Full Display</span>
-            </div>
           </div>
         </div>
       </div>
     </section>
-  );
+  )
 }
