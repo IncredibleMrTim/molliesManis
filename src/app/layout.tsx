@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Nunito, Pacifico } from "next/font/google";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 
 const pacifico = Pacifico({
@@ -28,6 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${pacifico.variable} ${nunito.variable}`}>{children}</body>
+      <GoogleAnalytics gaId="G-Z4C8NYLPJ9" />
     </html>
   );
 }

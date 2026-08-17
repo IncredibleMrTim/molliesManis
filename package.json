@@ -11,6 +11,7 @@
     "format": "oxfmt"
   },
   "dependencies": {
+    "@next/third-parties": "^16.3.1",
     "next": "^15.5.0",
     "nodemailer": "^9.0.5",
     "react": "^19.0.0",
